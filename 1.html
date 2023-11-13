@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Kendaraan</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Kendaraan</h1>
+
+  <ul id="kendaraan-list"></ul>
+
+  <form id="form-kendaraan">
+    <button type="button" onclick="hapusKendaraan()">Hapus Kendaraan</button>
+  </form>
+
+  <script>
+    let kendaraan = [
+      "Mobil",
+      "Motor",
+      "Sepeda",
+      "Pesawat",
+      "Kapal",
+      "Truk",
+      "Helikopter",
+      "Perahu",
+      "Bus",
+      "Kereta"
+    ];
+
+    function tampilkanKendaraan() {
+      const kendaraanList = document.getElementById('kendaraan-list');
+      kendaraanList.innerHTML = '';
+
+      kendaraan.forEach((k, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${index + 1}. ${k}`;
+        kendaraanList.appendChild(listItem);
+      });
+    }
+
+    function hapusKendaraan() {
+      const inputNomor = prompt('Masukkan nomor kendaraan yang ingin dihapus:');
+      const nomor = parseInt(inputNomor);
+
+      if (!isNaN(nomor) && nomor >= 1 && nomor <= kendaraan.length) {
+        kendaraan.splice(nomor - 1, 1); //
+        tampilkanKendaraan();
+      } else {
+        alert('Nomor kendaraan tidak valid');
+      }
+    }
+
+    tampilkanKendaraan();
+  </script>
+</body>
+</html>

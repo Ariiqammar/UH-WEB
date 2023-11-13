@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perulangan Kalimat</title>
+</head>
+<body>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          color: #333;
+          text-align: center;
+          margin: 20px;
+        }
+      
+        h1 {
+          color: #007bff;
+        }
+      
+        label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+      
+        input {
+          padding: 8px;
+          margin-bottom: 10px;
+        }
+      
+        button {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px;
+          cursor: pointer;
+        }
+      
+        button:hover {
+          background-color: #0056b3;
+        }
+      
+        #hasil-perulangan {
+          margin-top: 20px;
+        }
+      
+        p {
+          margin: 10px 0;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+      </style>
+      
+  <h1>Program Perulangan Kalimat</h1>
+
+  <label for="jumlah-perulangan">Masukkan jumlah perulangan:</label>
+  <input type="number" id="jumlah-perulangan" min="1" required>
+  <button onclick="tampilkanKalimat()">Tampilkan Kalimat</button>
+
+  <div id="hasil-perulangan"></div>
+
+  <script>
+    function tampilkanKalimat() {
+  const jumlahPerulanganInput = document.getElementById('jumlah-perulangan');
+  const jumlahPerulangan = parseInt(jumlahPerulanganInput.value);
+
+  if (!isNaN(jumlahPerulangan) && jumlahPerulangan > 0) {
+    const kalimat = "Saya orang yang sabar, ramah, dan tidak membenci orang.";
+
+    const hasilPerulangan = document.getElementById('hasil-perulangan');
+    hasilPerulangan.innerHTML = '';
+
+    for (let i = 0; i < jumlahPerulangan; i++) {
+      const paragraf = document.createElement('p');
+      paragraf.textContent = kalimat;
+      hasilPerulangan.appendChild(paragraf);
+    }
+  } else {
+    alert('Masukkan jumlah perulangan yang valid (angka lebih dari 0).');
+  }
+}
+
+  </script>
+</body>
+</html>

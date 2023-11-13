@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pembuatan Kalimat</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #3498db;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      margin: 8px;
+      border: 1px solid #3498db;
+      border-radius: 6px;
+      width: 300px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin: 16px 4px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    .hasil-form {
+      background-color: #3498db;
+      border-radius: 10px;
+      margin-top: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #hasil {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Pembuatan Kalimat</h1>
+    <form id="kalimatForm">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+
+      <label for="usia">Usia:</label>
+      <input type="number" id="usia" placeholder="Masukkan usia Anda" required>
+
+      <label for="alamat">Alamat:</label>
+      <textarea id="alamat" placeholder="Masukkan alamat Anda" required></textarea>
+
+      <label for="hobi">Hobi:</label>
+      <input type="text" id="hobi" placeholder="Masukkan hobi Anda" required>
+
+      <button type="button" onclick="buatkalimat()">Buat Kalimat</button>
+    </form>
+
+    <div class="hasil-form" id="hasilForm">
+      <h2>Hasil Kalimat:</h2>
+      <div id="hasil"></div>
+    </div>
+  </div>
+  <script>
+    function buatkalimat() {
+      var nama = document.getElementById('nama').value;
+      var usia = document.getElementById('usia').value;
+      var alamat = document.getElementById('alamat').value;
+      var hobi = document.getElementById('hobi').value;
+
+      var kalimat = `Mana saya ${nama} usia saya ${usia} tahun, alamat saya di ${alamat}, dan saya punya hobby ${hobi}.`;
+
+      document.getElementById('hasil').textContent = kalimat;
+    }
+  </script>
+</body>
+</html>
